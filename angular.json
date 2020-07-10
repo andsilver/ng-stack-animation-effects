@@ -123,6 +123,46 @@
           }
         }
       }
+    },
+    "NgxStackEffects": {
+      "projectType": "library",
+      "root": "projects/ngx-stack-effects",
+      "sourceRoot": "projects/ngx-stack-effects/src",
+      "prefix": "NgxStackEffects",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-stack-effects/tsconfig.lib.json",
+            "project": "projects/ngx-stack-effects/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-stack-effects/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-stack-effects/src/test.ts",
+            "tsConfig": "projects/ngx-stack-effects/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-stack-effects/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-stack-effects/tsconfig.lib.json",
+              "projects/ngx-stack-effects/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "StackEffects"
 }

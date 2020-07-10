@@ -1,0 +1,20 @@
+{
+  "name": "ngx-stack-effects",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^9.1.11",
+    "@angular/core": "^9.1.11"
+  },
+  "dependencies": {
+    "tslib": "^1.10.0"
+  },
+  "keywords": [
+    "angular",
+    "rxjs",
+    "animations",
+    "stack",
+    "stack effects"
+  ],
+  "author": "Yash Mathur",
+  "description": "Angular Component for several stack animation effects"
+}

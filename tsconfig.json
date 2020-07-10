@@ -14,7 +14,13 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-stack-effects": [
+        "dist/ngx-stack-effects/ngx-stack-effects",
+        "dist/ngx-stack-effects"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
