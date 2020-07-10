@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "StackEffects": {
+    "stack-effects": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/StackEffects",
+            "outputPath": "dist/stack-effects",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -124,7 +124,7 @@
         }
       }
     },
-    "NgxStackEffects": {
+    "ngx-stack-effects": {
       "projectType": "library",
       "root": "projects/ngx-stack-effects",
       "sourceRoot": "projects/ngx-stack-effects/src",
@@ -165,5 +165,5 @@
       }
     }
   },
-  "defaultProject": "StackEffects"
+  "defaultProject": "stack-effects"
 }
