@@ -5,6 +5,7 @@
     "@angular/common": "^9.1.11",
     "@angular/core": "^9.1.11"
   },
+  "license": "MIT",
   "keywords": [
     "angular",
     "rxjs",
