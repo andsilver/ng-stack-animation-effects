@@ -1,24 +1,58 @@
-# NgxStackEffects
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+[![Build Status](https://travis-ci.com/lastch/ngx-stack-effects.svg?branch=master)](https://travis-ci.com/lastch/ngx-stack-effects)
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.11.
+# StackEffects
 
-## Code scaffolding
+Several Stack Effects in Angular Component.
 
-Run `ng generate component component-name --project NgxStackEffects` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project NgxStackEffects`.
-> Note: Don't forget to add `--project NgxStackEffects` or else it will be added to the default project in your `angular.json` file. 
+# [Demo](https://lastch.github.io/ngx-stack-effects/)
 
-## Build
+- ts
+```
+import { StackEffects } from 'ngx-stack-effects';
+effects = StackEffects;
+```
 
-Run `ng build NgxStackEffects` to build the project. The build artifacts will be stored in the `dist/` directory.
+- html
+```
+<ngx-stack-effects (animationEnd)="animationend($event)" [effect]="effects.SimpleSpread">
+    <ngx-stack-effects-item>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCc-1-He9YYgMnvaP1CawbPxyer3KieXBQR6NW-v0oeQC-f9iU">
+    </ngx-stack-effects-item>
+    <ngx-stack-effects-item>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWHh_3hNRDQXa_7Is9_hEvnM85zFM02ooNAr1c8ChDzchBaXek">
+    </ngx-stack-effects-item>
+    <ngx-stack-effects-item>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxBQDHi9zMvLgfXApwTSbgSKvh4jph5UtsHZLlawCgT3TxuQqd5w">
+    </ngx-stack-effects-item>
+    <ngx-stack-effects-item>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpzqmXFsHKn7e8sgJsHlSULGuRwnGdOEQoe-048Fzry2abvEhv">
+    </ngx-stack-effects-item>
+    <ngx-stack-effects-item>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ4RniQr4e8VL-Lsjj-3qQkAW2x5aZ0upO9EWNDYl3BnR8bf8L">
+    </ngx-stack-effects-item>
+</ngx-stack-effects>
+```
 
-## Publishing
+There are several effects in `StackEffects`.
+```
+export enum StackEffects {
+  Fanout = 'fanout',
+  SimpleSpread = 'simple_spread',
+  RandomRotation = 'random_rotation',
+  SideSlide = 'side_slide',
+  SideGrid = 'side_grid',
+  PeekaBoo = 'peek_a_boo',
+  PreviewGrid = 'preview_grid',
+  CornerGrid = 'corner_grid',
+  BouncyGrid = 'bouncy_grid',
+  Coverflow = 'coverflow',
+  Leaflet = 'leaflet',
+  VerticalSpread = 'vertical_spread',
+  ElasticSpread = 'elastic_spread',
+  Fan = 'fan',
+  Queue = 'queue'
+}
 
-After building your library with `ng build NgxStackEffects`, go to the dist folder `cd dist/ngx-stack-effects` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test NgxStackEffects` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```
