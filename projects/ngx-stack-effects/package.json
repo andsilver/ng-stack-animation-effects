@@ -5,9 +5,6 @@
     "@angular/common": "^9.1.11",
     "@angular/core": "^9.1.11"
   },
-  "dependencies": {
-    "tslib": "^1.10.0"
-  },
   "keywords": [
     "angular",
     "rxjs",
@@ -16,5 +13,9 @@
     "stack effects"
   ],
   "author": "Yash Mathur",
-  "description": "Angular Component for several stack animation effects"
+  "description": "Angular Component for several stack animation effects",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/lastch/ngx-stack-effects.git"
+  }
 }
