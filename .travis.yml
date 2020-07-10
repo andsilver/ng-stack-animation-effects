@@ -10,7 +10,7 @@ cache:
   - $HOME/.npm
 script:
 - npm run lint-lib
-- npm run build && build-lib
+- npm run build && npm run build-lib
 
 deploy:
   provider: pages
