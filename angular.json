@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "StackEffects:build"
+            "browserTarget": "stack-effects:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "StackEffects:build:production"
+              "browserTarget": "stack-effects:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "StackEffects:build"
+            "browserTarget": "stack-effects:build"
           }
         },
         "test": {
@@ -114,11 +114,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "StackEffects:serve"
+            "devServerTarget": "stack-effects:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "StackEffects:serve:production"
+              "devServerTarget": "stack-effects:serve:production"
             }
           }
         }
