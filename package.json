@@ -8,9 +8,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build-lib": "ng build NgxStackEffects --prod",
+    "build-lib": "ng build ngx-stack-effects --prod",
     "commit": "git-cz",
-    "lint-lib": "ng lint NgxStackEffects",
+    "lint-lib": "ng lint ngx-stack-effects",
     "travis-deploy-once": "travis-deploy-once --pro",
     "semantic-release": "semantic-release"
   },
