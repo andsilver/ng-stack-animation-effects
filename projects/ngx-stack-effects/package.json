@@ -1,6 +1,6 @@
 {
   "name": "ngx-stack-effects",
-  "version": "0.0.1",
+  "version": "0.0.0-semantically-released",
   "peerDependencies": {
     "@angular/common": "^9.1.11",
     "@angular/core": "^9.1.11"
