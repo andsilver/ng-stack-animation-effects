@@ -1,7 +1,7 @@
 import { Component, OnInit, ElementRef, Renderer2, OnDestroy } from '@angular/core';
 
 @Component({
-  selector: 'ngx-stack-item',
+  selector: 'ngx-stack-effects-item',
   template: '<ng-content></ng-content>',
   styles: [`
   :host {

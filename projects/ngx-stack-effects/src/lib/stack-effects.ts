@@ -14,4 +14,4 @@ export enum StackEffects {
   ElasticSpread = 'elastic_spread',
   Fan = 'fan',
   Queue = 'queue'
-};
+}

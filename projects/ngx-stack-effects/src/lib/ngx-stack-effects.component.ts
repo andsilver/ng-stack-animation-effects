@@ -19,16 +19,16 @@ export class NgxStackEffectsComponent implements OnInit, AfterViewInit, OnDestro
   effect = StackEffects.Fanout;
 
   @Input()
-  width: string = `300px`;
+  width = `300px`;
 
   @Input()
-  height: string = `200px`;
+  height = `200px`;
 
   @Output()
-  animationend = new EventEmitter();
+  animationEnd = new EventEmitter<number>();
 
   activeChanges = new Subject<boolean>();
-  isActive: boolean = false;
+  isActive = false;
   elements: EffectItem[] = [];
   selectedIndex = 0;
   subscriptions: Subscription[] = [];
@@ -71,7 +71,7 @@ export class NgxStackEffectsComponent implements OnInit, AfterViewInit, OnDestro
   selectItem(index: number) {
     this.selectedIndex = index;
     this.active();
-    this.animationend.emit(this.selectedIndex);
+    this.animationEnd.emit(this.selectedIndex);
   }
 
   initialize() {
@@ -111,8 +111,9 @@ export class NgxStackEffectsComponent implements OnInit, AfterViewInit, OnDestro
 
         this.elements.forEach((el, i) => {
           let index = i - this.selectedIndex;
-          if (index < 0)
+          if (index < 0) {
             index += this.elements.length;
+          }
           // this.
         });
         break;
@@ -124,10 +125,12 @@ export class NgxStackEffectsComponent implements OnInit, AfterViewInit, OnDestro
           this.renderer.setStyle(el.element, 'z-index', Math.abs(this.elements.length - index - 1));
           this.renderer.setStyle(el.element, 'transform-style', 'preserve-3d');
           this.renderer.setStyle(el.element, 'transform-origin', 'top center');
-          if (this.effect === StackEffects.Leaflet)
+          if (this.effect === StackEffects.Leaflet) {
             this.renderer.setStyle(el.element, 'transform', 'rotateX(0deg)');
-          else
+          }
+          else {
             this.renderer.setStyle(el.element, 'transform', 'rotateY(0deg) scale(1)');
+          }
         });
         break;
     }
@@ -170,14 +173,18 @@ export class NgxStackEffectsComponent implements OnInit, AfterViewInit, OnDestro
         this.elements.forEach((el, i) => {
           let index;
           index = i - this.selectedIndex;
-          if (index < 0)
+          if (index < 0) {
             index = this.elements.length + index;
-          if (index < center)
+          }
+          if (index < center) {
             this.setActiveStyle(el.element, center - index, 'left');
-          else if (index > center)
+          }
+          else if (index > center) {
             this.setActiveStyle(el.element, index - center, 'right');
-          else
+ }
+          else {
             this.setActiveStyle(el.element, 0, 'center');
+ }
           el.position = index;
         });
         break;
@@ -186,12 +193,15 @@ export class NgxStackEffectsComponent implements OnInit, AfterViewInit, OnDestro
         this.elements.forEach((el, i) => {
           let index;
           index = i - this.selectedIndex;
-          if (index < 0)
+          if (index < 0) {
             index = this.elements.length + index;
-          if (index === 0)
+          }
+          if (index === 0) {
             this.setActiveStyle(el.element, 0, 'center');
-          else
+          }
+          else {
             this.setActiveStyle(el.element, index, index % 2 === 1 ? 'left' : 'right');
+          }
           el.position = index;
         });
         break;
@@ -214,13 +224,16 @@ export class NgxStackEffectsComponent implements OnInit, AfterViewInit, OnDestro
         const left = width / 2 - total / 2;
         this.elements.forEach((el, i) => {
           let index = i - this.selectedIndex;
-          if (index < 0)
+          if (index < 0) {
             index += this.elements.length;
+          }
           p.left = left + (p.width + margin) * (index < rows ? index : index - rows) - margin;
-          if (index < rows)
+          if (index < rows) {
             this.setActiveStyle(el.element, -1, 'top', p);
-          else
+          }
+          else {
             this.setActiveStyle(el.element, -1, 'bottom', p);
+          }
           el.position = index;
         });
         break;
@@ -229,12 +242,15 @@ export class NgxStackEffectsComponent implements OnInit, AfterViewInit, OnDestro
         center = Math.ceil(this.elements.length / 2);
         this.elements.forEach((el, i) => {
           let index = i - this.selectedIndex;
-          if (index < 0)
+          if (index < 0) {
             index += this.elements.length;
-          if (index === 0)
+          }
+          if (index === 0) {
             this.setActiveStyle(el.element, 0, 'center');
-          else
+          }
+          else {
             this.setActiveStyle(el.element, Math.abs(center - index), index < center ? 'left' : 'right');
+          }
           el.position = index;
         });
         break;
@@ -243,8 +259,9 @@ export class NgxStackEffectsComponent implements OnInit, AfterViewInit, OnDestro
         this.elements.forEach((el, i) => {
           let index;
           index = i - this.selectedIndex;
-          if (index < 0)
+          if (index < 0) {
             index = this.elements.length + index;
+          }
           this.setActiveStyle(el.element, index, 'center');
           el.position = index;
         });
@@ -258,8 +275,9 @@ export class NgxStackEffectsComponent implements OnInit, AfterViewInit, OnDestro
         this.elements.forEach((el, i) => {
           let index;
           index = i - this.selectedIndex;
-          if (index < 0)
+          if (index < 0) {
             index = this.elements.length + index;
+          }
           this.setActiveStyle(el.element, Math.abs(this.elements.length - index - 1), 'center');
           el.position = index;
         });
@@ -280,7 +298,7 @@ export class NgxStackEffectsComponent implements OnInit, AfterViewInit, OnDestro
       case StackEffects.Fanout:
         const transform = 'scale(0.9)' + d !== 'center' ? ` rotate(${d === 'left' ? -index * 10 : index * 10}deg)` : '';
         this.renderer.setStyle(item, 'transform', transform);
-        if (d === 'center') return;
+        if (d === 'center') { return; }
         this.renderer.setStyle(item, 'left', `${d === 'left' ? -index * 100 : index * 100}px`);
         this.renderer.setStyle(item, 'top', `${index * 20}px`);
         this.renderer.setStyle(item, 'z-index', `${90 - index}`);
@@ -303,9 +321,9 @@ export class NgxStackEffectsComponent implements OnInit, AfterViewInit, OnDestro
           this.renderer.setStyle(item, 'left', `30px`);
           this.renderer.setStyle(item, 'top', `30px`);
           this.renderer.setStyle(item, 'z-index', 99);
-          this.renderer.setStyle(item, 'transform', 'rotate(0deg)')
+          this.renderer.setStyle(item, 'transform', 'rotate(0deg)');
         } else {
-          this.renderer.setStyle(item, 'transform', `rotate(${d === 'left' ? index * 5 : -index * 5}deg)`)
+          this.renderer.setStyle(item, 'transform', `rotate(${d === 'left' ? index * 5 : -index * 5}deg)`);
           this.renderer.setStyle(item, 'z-index', 99 - index);
           this.renderer.setStyle(item, 'left', 0);
           this.renderer.setStyle(item, 'top', 0);
@@ -492,23 +510,27 @@ export class NgxStackEffectsComponent implements OnInit, AfterViewInit, OnDestro
     const center = Math.floor(this.elements.length / 2);
     for (let i = 1; i <= center; i++) {
       let pos = this.selectedIndex - i;
-      if (pos < 0) pos = this.elements.length + pos;
+      if (pos < 0) { pos = this.elements.length + pos; }
       const item = this.elements[pos];
       item.position = center - i;
-      if (activate)
+      if (activate) {
         this.setActiveStyle(item.element, i, 'left');
-      else
+      }
+      else {
         this.setDeactiveStyle(item.element, i, 'left');
+      }
     }
     for (let i = 1; i < this.elements.length - center; i++) {
       let pos = this.selectedIndex + i;
-      if (pos >= this.elements.length) pos = pos - this.elements.length;
+      if (pos >= this.elements.length) { pos = pos - this.elements.length; }
       const item = this.elements[pos];
       item.position = center + i;
-      if (activate)
+      if (activate) {
         this.setActiveStyle(item.element, i, 'right');
-      else
+      }
+      else {
         this.setDeactiveStyle(item.element, i, 'right');
+      }
     }
     const selectedItem = this.elements[this.selectedIndex];
     selectedItem.position = center;
