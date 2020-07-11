@@ -17,6 +17,6 @@
   "description": "Angular Component for several stack animation effects",
   "repository": {
     "type": "git",
-    "url": "git://github.com/lastch/ngx-stack-effects.git"
+    "url": "git://github.com/lastch/stack-effects.git"
   }
 }

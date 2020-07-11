@@ -47,7 +47,7 @@ export class NgxStackEffectsComponent implements OnInit, AfterViewInit, OnDestro
 
   ngAfterViewInit() {
     setTimeout(() => {
-      const items = this.elementRef.nativeElement.getElementsByClassName('stacker-item');
+      const items = this.elementRef.nativeElement.getElementsByClassName('nse-item');
       for (let i = 0; i < items.length; i++) {
         const element = items.item(i);
         this.elements.push({ element, index: i, position: i });

@@ -15,7 +15,7 @@ export class NgxStackItemComponent implements OnInit, OnDestroy {
   constructor(private elementRef: ElementRef, private renderer: Renderer2) { }
 
   ngOnInit() {
-    const className = 'stacker-item';
+    const className = 'nse-item';
     this.renderer.addClass(
       this.elementRef.nativeElement,
       className
