@@ -5,10 +5,10 @@
 
 # NgxStackEffects
 
-Several Stack Effects in Angular Component. 
+Stack Animation Effects in Angular Component.
 
-# [Demo](https://lastch.github.io/stack-effects/)
-# [NPM](https://www.npmjs.com/package/ngx-stack-effects)
+- [Demo](https://lastch.github.io/stack-effects/)
+- [NPM](https://www.npmjs.com/package/ngx-stack-effects)
 
 # Usage
 - Install
