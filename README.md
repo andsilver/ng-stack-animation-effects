@@ -3,19 +3,37 @@
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 [![Build Status](https://travis-ci.com/lastch/stack-effects.svg?branch=master)](https://travis-ci.com/lastch/stack-effects)
 
-# StackEffects
+# NgxStackEffects
 
-Several Stack Effects in Angular Component.
+Several Stack Effects in Angular Component. 
 
 # [Demo](https://lastch.github.io/stack-effects/)
+# [NPM](https://www.npmjs.com/package/ngx-stack-effects)
 
-- ts
+# Usage
+- Install
+```sh
+npm install ngx-stack-effects
 ```
+
+- Module
+```ts
+import { NgxStackEffectsModule } from 'ngx-stack-effects';
+...
+import: [
+   ...
+   NgxStackEffectsModule
+]
+```
+
+- Component
+```ts
 import { StackEffects } from 'ngx-stack-effects';
+...
 effects = StackEffects;
 ```
 
-- html
+- HTML
 ```
 <ngx-stack-effects (animationEnd)="animationend($event)" [effect]="effects.SimpleSpread">
     <ngx-stack-effects-item>
