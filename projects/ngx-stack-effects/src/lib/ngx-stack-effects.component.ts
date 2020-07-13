@@ -32,7 +32,7 @@ export class NgxStackEffectsComponent implements OnInit, AfterViewInit, OnDestro
   elements: EffectItem[] = [];
   selectedIndex = 0;
 
-  private _ngSubscription = new Subject();
+  private ngSubbscribe = new Subject();
 
   constructor(private elementRef: ElementRef, private renderer: Renderer2) { }
 
@@ -44,8 +44,8 @@ export class NgxStackEffectsComponent implements OnInit, AfterViewInit, OnDestro
 
   ngOnDestroy() {
     this.elements.forEach((item) => item.element.remove());
-    this._ngSubscription.next();
-    this._ngSubscription.complete();
+    this.ngSubbscribe.next();
+    this.ngSubbscribe.complete();
   }
 
   ngAfterViewInit() {
@@ -64,7 +64,7 @@ export class NgxStackEffectsComponent implements OnInit, AfterViewInit, OnDestro
 
   watchActivation() {
     this.activeChanges.pipe(
-      takeUntil(this._ngSubscription),
+      takeUntil(this.ngSubbscribe),
       debounceTime(100),
       distinctUntilChanged()
     ).subscribe(status => {
