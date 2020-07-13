@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ElementRef, Renderer2, AfterViewInit, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { StackEffects } from './stack-effects';
-import { Subject, Subscription } from 'rxjs';
-import { distinctUntilChanged, debounceTime } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+import { distinctUntilChanged, debounceTime, takeUntil } from 'rxjs/operators';
 
 interface EffectItem {
   index: number;
@@ -31,7 +31,8 @@ export class NgxStackEffectsComponent implements OnInit, AfterViewInit, OnDestro
   isActive = false;
   elements: EffectItem[] = [];
   selectedIndex = 0;
-  subscriptions: Subscription[] = [];
+
+  private _ngSubscription = new Subject();
 
   constructor(private elementRef: ElementRef, private renderer: Renderer2) { }
 
@@ -43,6 +44,8 @@ export class NgxStackEffectsComponent implements OnInit, AfterViewInit, OnDestro
 
   ngOnDestroy() {
     this.elements.forEach((item) => item.element.remove());
+    this._ngSubscription.next();
+    this._ngSubscription.complete();
   }
 
   ngAfterViewInit() {
@@ -60,12 +63,14 @@ export class NgxStackEffectsComponent implements OnInit, AfterViewInit, OnDestro
   }
 
   watchActivation() {
-    this.subscriptions.push(
-      this.activeChanges.pipe(debounceTime(100), distinctUntilChanged()).subscribe(status => {
-        this.isActive = status;
-        status ? this.active() : this.deactive();
-      })
-    );
+    this.activeChanges.pipe(
+      takeUntil(this._ngSubscription),
+      debounceTime(100),
+      distinctUntilChanged()
+    ).subscribe(status => {
+      this.isActive = status;
+      status ? this.active() : this.deactive();
+    });
   }
 
   selectItem(index: number) {
