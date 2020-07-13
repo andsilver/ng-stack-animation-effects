@@ -181,10 +181,10 @@ export class NgxStackEffectsComponent implements OnInit, AfterViewInit, OnDestro
           }
           else if (index > center) {
             this.setActiveStyle(el.element, index - center, 'right');
- }
+          }
           else {
             this.setActiveStyle(el.element, 0, 'center');
- }
+          }
           el.position = index;
         });
         break;
