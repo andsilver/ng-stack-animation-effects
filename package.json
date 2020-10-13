@@ -1,10 +1,10 @@
 {
-  "name": "stack-effects",
+  "name": "ng-stack-animation-effects",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --base-href /stack-effects/ --prod",
+    "build": "ng build --base-href /ng-stack-animation-effects/ --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
